@@ -1,0 +1,4 @@
+使用Fidder进行代理，并且启动爬虫时 会报错
+错误信息：requests.exceptions.SSLError: ("bad handshake: Error([('SSL routines', 'tls_process_server_certificate', 'certificate verify failed')],)",)
+
+解决方法：在get方法后面加上参数（verify=False）

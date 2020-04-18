@@ -1,0 +1,91 @@
+2020.4.18
+服务器在操作系统的控制下与专用通讯设备提供网路上的客户站点共享，也能为网络用户提供计算，数据库
+管理的服务。
+● 硬盘接口技术 
+	IDE：（intergraded drive electronies）现在pc机的主流硬盘接口。
+	SCSI：（small computer system interface）小型计算机系统接口。
+	a.独立于硬件设备的智能化接口：减轻了CPU的负担
+	b.多个I/O并行操作：因此SCSI设备传输速度快.
+	C.可拓展多个设备
+
+发现搭建服务器要python的socket的知识，尴尬~
+BeautifulSoup
+	BeautifulSoup对象是一个复杂的树形结构，它的每一个节点都是一个python
+对象，获取网页内容就是一个提取对象内容的过程
+	（1）遍历文档树
+	（2）搜索文档树
+	（3）CSS选择器
+1.遍历文档树.文档树遍历方法就好像爬树一样，首先先爬到树干上，然后慢慢到小树干，最后到树枝
+上，就可以得到所要的内容
+soup.(tag).(attri)
+得到头部的第一个标签
+
+soup.(tag).(attri).contens
+得到某个标签的所有子节点，用contents把它的子节点以列表的方式输出
+
+for child in soup.（tag）.(attri).children: 
+	print (child)
+也可以用children方式获得所有字标签
+
+for child in soup.（tag）.(attri).descendants:    
+	print(child)
+获得所有子子孙孙的节点，用desendants方法
+
+2.搜索文档树
+在搜索文档树时最常用的是find（）和find_all().
+(艹，我真的不想学正则表达式，以后用到再说吧)
+^ 匹配字符串开头
+re.S 可匹配换行符
+re.l  忽略大小写
+
+3.CSS选择器
+CSS选择器方法既可以作为遍历文档树方法提取数据，也可以作为搜索文档树的方法提取数据
+首先，可以用过tag标签逐层查找
+soup.select("header h1")
+也可以通过某个标签下的直接子标签遍历，例如
+soup.select("header>h3"
+soup.select("div>a")
+
+CSS选择器也可以实现搜索文档树的功能。
+soup.select('a[href^="http://www.santostang.com/"]')
+# a=(tag)  ^这个上尖号是用来匹配开头的
+# 没有这个^ 会返回一个空列表
+
+Xpath表达式
+/    逐层提取
+text()     提取标签下面的文本
+//标签名**      提取所有名为**的标签
+//标签名[@属性='属性值']        提取属性为XX的标签
+@属性名 代表取某个属性值
+
+数据储存
+（1）储存在文件中，包括TXT和CSV文件
+（2）储存在数据库中。包括MySQL关系数据库和Mongo数据库
+1.把数据存在TXT
+title = "this is a test sentence"
+with open ('path',"key") as f:
+	f.write(title)
+	f.close()
+注：分隔路径时使用\\因为\会被认为是转义字符
+with open('C:\\you\desktop\\title.txt')
+with open('C:/you/desktop/title.txt')
+
+python 的Scrapy框架
+scrapy的主要组件有Scrapy Engine(引擎)，Scheduler（调速器），Download（下载器）
+Spider(爬虫器)，Item Pipeline(管道)。还有两个中间件：
+Downloader Middlewares（下载 器中间件）和Spider Middlewares（爬虫器中间件）。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
