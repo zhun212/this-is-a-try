@@ -1,0 +1,8 @@
+今天自己捣鼓了一下git，发现自己总也push不成功，上网查了一下。
+是远程repository与本地repository冲突了
+解决办法：
+1.强制push
+   git push -u origin master -f
+2.push 之前先将远程repository给pull下来
+   git pull origin  master
+   git push -u origin master
